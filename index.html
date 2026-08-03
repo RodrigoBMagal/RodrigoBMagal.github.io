@@ -3,9 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>~/portfolio</title>
+<title>Rodrigo Magalhães — Desenvolvedor Back-end &amp; Full Stack</title>
+<meta name="description" content="Portfólio de Rodrigo Magalhães, desenvolvedor back-end e full stack em Saquarema/RJ. APIs REST em Java e Spring Boot, Node.js/TypeScript, Laravel e apps mobile em React Native.">
+<meta name="author" content="Rodrigo Magalhães">
+<meta name="theme-color" content="#0a0c10">
+<link rel="canonical" href="https://rodrigobmagal.github.io/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Rodrigo Magalhães">
+<meta property="og:url" content="https://rodrigobmagal.github.io/">
+<meta property="og:title" content="Rodrigo Magalhães — Desenvolvedor Back-end &amp; Full Stack">
+<meta property="og:description" content="APIs REST, autenticação e autorização, mensageria e apps mobile — projetos com foco em arquitetura, testes automatizados e infraestrutura em containers.">
+<meta property="og:image" content="https://rodrigobmagal.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Rodrigo Magalhães — Desenvolvedor Back-end e Full Stack">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rodrigo Magalhães — Desenvolvedor Back-end &amp; Full Stack">
+<meta name="twitter:description" content="APIs REST, autenticação e autorização, mensageria e apps mobile — projetos com foco em arquitetura, testes automatizados e infraestrutura em containers.">
+<meta name="twitter:image" content="https://rodrigobmagal.github.io/og-image.png">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%230a0c10'/><rect x='4' y='4' width='8' height='8' fill='%2359c9b8'/></svg>">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg-0:#0a0c10;
@@ -15,12 +40,14 @@
     --line-soft:#1c2028;
     --fg-0:#d7dbe0;
     --fg-1:#8891a0;
-    --fg-2:#525a68;
+    /* --fg-2: clareado de #525a68 (2.6:1) para passar WCAG AA em texto pequeno */
+    --fg-2:#7c8593;
     --accent:#59c9b8;
+    /* --accent-dim: só decorativo (marcadores ▪ ▸, seleção) — sem exigência de contraste */
     --accent-dim:#2f5e58;
+    /* --accent-mid: onde o tom escuro carrega informação (índices, tag do card) */
+    --accent-mid:#4a8f85;
     --accent-2:#c98f4a;
-    --danger:#c2685f;
-    --radius:2px;
   }
   *{box-sizing:border-box;}
   ::selection{background:var(--accent-dim);color:#eafffb;}
@@ -30,8 +57,8 @@
     background:var(--bg-0);
     color:var(--fg-0);
     font-family:'JetBrains Mono',monospace;
-    font-weight:300;
-    font-size:14px;
+    font-weight:400;
+    font-size:15px;
     line-height:1.7;
     background-image:
       repeating-linear-gradient(180deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 3px);
@@ -109,9 +136,10 @@
   .chip::before{content:'▪ ';color:var(--accent-dim);}
 
   /* ---------- section headers ---------- */
-  section{padding:56px 0;border-bottom:1px solid var(--line-soft);}
+  /* scroll-margin compensa a topbar sticky de 52px ao pular por âncora */
+  section{padding:56px 0;border-bottom:1px solid var(--line-soft);scroll-margin-top:68px;}
   .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:28px;}
-  .sec-head .idx{font-family:'Silkscreen',monospace;font-size:11px;color:var(--accent-dim);}
+  .sec-head .idx{font-family:'Silkscreen',monospace;font-size:11px;color:var(--accent-mid);}
   .sec-head h2{
     font-family:'Silkscreen',monospace;font-size:16px;color:var(--fg-0);
     letter-spacing:0.5px;margin:0;font-weight:400;
@@ -123,7 +151,7 @@
   .about-grid p{color:var(--fg-1);font-size:13px;margin:0 0 14px;}
   .about-grid .lbl{color:var(--fg-2);font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
   .kv{display:flex;justify-content:space-between;font-size:12px;padding:7px 0;border-bottom:1px dashed var(--line-soft);color:var(--fg-1);}
-  .kv b{color:var(--fg-0);font-weight:400;}
+  .kv b{color:var(--fg-0);font-weight:500;}
 
   /* ---------- projects ---------- */
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);}
@@ -139,8 +167,8 @@
     content:attr(data-tag);
     position:absolute;top:0;right:0;
     font-family:'Silkscreen',monospace;
-    font-size:9px;color:var(--bg-0);
-    background:var(--accent-dim);
+    font-size:10px;color:var(--bg-0);
+    background:var(--accent-mid);
     padding:3px 7px;
     letter-spacing:0.5px;
   }
@@ -148,9 +176,12 @@
     font-family:'Silkscreen',monospace;font-size:14px;color:var(--fg-0);
     margin:6px 0 8px;font-weight:400;letter-spacing:0.3px;
   }
-  .card .desc{color:var(--fg-1);font-size:12.5px;margin:0 0 14px;flex:1;}
+  .card .desc{color:var(--fg-1);font-size:13px;margin:0 0 14px;flex:1;}
   .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
-  .tags span{font-size:10px;color:var(--fg-2);border:1px solid var(--line);padding:2px 6px;}
+  .tags span{font-size:11px;color:var(--fg-2);border:1px solid var(--line);padding:2px 6px;}
+  /* tecnologia planejada, ainda não implementada — distinta das tags do que já existe */
+  .tags span.roadmap{color:var(--accent-2);border-color:var(--accent-dim);border-style:dashed;}
+  .tags span.roadmap::before{content:'planejado: ';color:var(--fg-2);}
   .card-links{display:flex;gap:14px;font-size:11.5px;border-top:1px solid var(--line-soft);padding-top:12px;margin-top:auto;}
   .card-links a{color:var(--fg-1);display:flex;align-items:center;gap:5px;}
   .card-links a:hover{color:var(--accent);}
@@ -169,10 +200,12 @@
   @media (max-width:720px){
     .about-grid{grid-template-columns:1fr;gap:20px;}
     .grid{grid-template-columns:1fr;}
-    nav{display:none;}
+    /* esconde só a nav da topbar — a do footer continua sendo a navegação no mobile */
+    .topbar nav{display:none;}
     .hero{padding:56px 0 44px;}
   }
   @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
     .term-body .ln{animation:none;opacity:1;}
     .cur{animation:none;}
   }
@@ -203,7 +236,7 @@
       </div>
     </div>
 
-    <h1 class="title">Desenvolvedor<br>Back-end &amp; Full Stack</h1>
+    <h1 class="title">Rodrigo Magalhães<br>Back-end &amp; Full Stack</h1>
     <p class="subtitle">APIs REST, autenticação e autorização, mensageria e apps mobile — projetos construídos com foco em arquitetura, testes automatizados e infraestrutura em containers.</p>
 
     <div class="stack-row">
@@ -266,7 +299,7 @@
       <div class="card" data-tag="java · api">
         <h3>Sistema de Banco</h3>
         <p class="desc">Simulação de banco digital: depósito, saque, transferência e extrato. Autenticação e escopos via Keycloak, com evolução planejada para processamento assíncrono em fila com Kafka.</p>
-        <div class="tags"><span>Java</span><span>Spring Security</span><span>Keycloak</span><span>Kafka</span><span>JUnit / Mockito</span></div>
+        <div class="tags"><span>Java</span><span>Spring Security</span><span>Keycloak</span><span>JUnit / Mockito</span><span class="roadmap">Kafka</span></div>
         <div class="card-links">
           <a href="https://github.com/RodrigoBMagal/banco" target="_blank" rel="noopener">Código</a>
         </div>
