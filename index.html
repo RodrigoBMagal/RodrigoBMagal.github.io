@@ -179,9 +179,6 @@
   .card .desc{color:var(--fg-1);font-size:13px;margin:0 0 14px;flex:1;}
   .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
   .tags span{font-size:11px;color:var(--fg-2);border:1px solid var(--line);padding:2px 6px;}
-  /* tecnologia planejada, ainda não implementada — distinta das tags do que já existe */
-  .tags span.roadmap{color:var(--accent-2);border-color:var(--accent-dim);border-style:dashed;}
-  .tags span.roadmap::before{content:'planejado: ';color:var(--fg-2);}
   .card-links{display:flex;gap:14px;font-size:11.5px;border-top:1px solid var(--line-soft);padding-top:12px;margin-top:auto;}
   .card-links a{color:var(--fg-1);display:flex;align-items:center;gap:5px;}
   .card-links a:hover{color:var(--accent);}
@@ -246,7 +243,7 @@
       <span class="chip">React Native</span>
       <span class="chip">PostgreSQL</span>
       <span class="chip">Docker</span>
-      <span class="chip">JWT / OAuth2 / Keycloak</span>
+      <span class="chip">JWT / Spring Security</span>
       <span class="chip">CI/CD</span>
     </div>
   </div>
@@ -257,12 +254,12 @@
     <div class="sec-head"><span class="idx pixel">01</span><h2>sobre</h2><span class="rule"></span></div>
     <div class="about-grid">
       <div>
-        <p>Os projetos abaixo cobrem back-end em Java e Node/TypeScript, um front-end em Laravel/PHP e um app mobile em React Native — sempre com autenticação real, testes e um pipeline de CI/CD rodando no GitHub Actions.</p>
+        <p>Os projetos abaixo cobrem back-end em Java e Node/TypeScript, um front-end em Laravel/PHP e um app mobile em React Native — todos com autenticação real e pipeline de CI/CD rodando no GitHub Actions, e os de Java com suíte de testes unitários e de integração.</p>
         <p>Boa parte deles nasceu de simulações de sistemas do mundo real: um banco digital, uma clínica veterinária, um gerenciador de tarefas — priorizando regras de negócio bem definidas em vez de apenas telas bonitas.</p>
       </div>
       <div>
         <div class="lbl">práticas recorrentes</div>
-        <div class="kv"><span>autenticação</span><b>JWT · OAuth2 · Keycloak</b></div>
+        <div class="kv"><span>autenticação</span><b>JWT · Spring Security · Sanctum</b></div>
         <div class="kv"><span>testes</span><b>JUnit · Mockito · Codecov</b></div>
         <div class="kv"><span>infraestrutura</span><b>Docker · Docker Compose</b></div>
         <div class="kv"><span>documentação</span><b>Swagger / OpenAPI</b></div>
@@ -298,8 +295,8 @@
 
       <div class="card" data-tag="java · api">
         <h3>Sistema de Banco</h3>
-        <p class="desc">Simulação de banco digital: depósito, saque, transferência e extrato. Autenticação e escopos via Keycloak, com evolução planejada para processamento assíncrono em fila com Kafka.</p>
-        <div class="tags"><span>Java</span><span>Spring Security</span><span>Keycloak</span><span>JUnit / Mockito</span><span class="roadmap">Kafka</span></div>
+        <p class="desc">Simulação de banco digital: depósito, saque, transferência e extrato. Autenticação JWT com Spring Security e eventos de transferência publicados em Kafka, consumidos por um serviço de auditoria. Testes de integração com Testcontainers subindo PostgreSQL e Kafka reais.</p>
+        <div class="tags"><span>Java 21</span><span>Spring Boot 3</span><span>Spring Security / JWT</span><span>Kafka</span><span>Testcontainers</span><span>JUnit / Mockito</span></div>
         <div class="card-links">
           <a href="https://github.com/RodrigoBMagal/banco" target="_blank" rel="noopener">Código</a>
         </div>
