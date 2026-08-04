@@ -213,6 +213,10 @@
     margin:6px 0 8px;font-weight:400;letter-spacing:0.3px;
   }
   .card .desc{color:var(--fg-1);font-size:13px;margin:0 0 14px;flex:1;}
+  /* aviso operacional da demo (cold start, credenciais de teste) */
+  .card .note{color:var(--fg-2);font-size:11px;line-height:1.6;margin:0 0 14px;
+    border-left:2px solid var(--line);padding-left:9px;}
+  .card .note code{color:var(--fg-1);}
   .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
   .tags span{font-size:11px;color:var(--fg-2);border:1px solid var(--line);padding:2px 6px;}
   .card-links{display:flex;gap:14px;font-size:11.5px;border-top:1px solid var(--line-soft);padding-top:12px;margin-top:auto;}
@@ -357,11 +361,13 @@
         </div>
       </div>
 
-      <div class="card" data-tag="java · api">
+      <div class="card" data-tag="java · live demo">
         <h3>DSList API</h3>
-        <p class="desc">API REST para gerenciamento de listas de jogos. Autenticação JWT, exception handler global, cache com Caffeine e migrações versionadas com Flyway/Liquibase.</p>
+        <p class="desc">API REST para gerenciamento de listas de jogos. Autenticação JWT, exception handler global, cache com Caffeine e migrações versionadas com Flyway/Liquibase. Publicada em container Docker, com a documentação OpenAPI aberta para teste.</p>
+        <p class="note">A demo roda em plano gratuito e hiberna quando ociosa: a primeira requisição pode levar ~40s. Login de teste: <code>ana@gmail.com</code> ou <code>bob@gmail.com</code> (admin), senha <code>123456</code>.</p>
         <div class="tags"><span>Java 21</span><span>Spring Boot 3</span><span>PostgreSQL</span><span>Docker</span><span>Swagger</span></div>
         <div class="card-links">
+          <a href="https://dslist-api-z45n.onrender.com/swagger-ui.html" target="_blank" rel="noopener">Testar a API</a>
           <a href="https://github.com/RodrigoBMagal/dslist" target="_blank" rel="noopener">Código</a>
         </div>
       </div>
