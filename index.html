@@ -167,6 +167,9 @@
     background:var(--bg-1);
   }
   .chip::before{content:'▪ ';color:var(--accent-dim);}
+  /* chip clicavel: unico ponto de JS do site (window.print) */
+  button.chip{font-family:inherit;line-height:inherit;cursor:pointer;}
+  button.chip:hover{color:var(--accent);border-color:var(--accent-dim);}
 
   /* ---------- section headers ---------- */
   /* scroll-margin compensa a topbar sticky de 52px ao pular por âncora */
@@ -249,7 +252,7 @@
       font-size:10.5pt;line-height:1.45;
     }
     /* chrome de navegacao e enfeites nao servem no papel */
-    .topbar,footer nav,.term,.cur{display:none;}
+    .topbar,footer nav,.term,.cur,button.chip{display:none;}
     .wrap{max-width:none;padding:0;}
     h1.title{color:#000;font-size:22pt;margin-top:0;}
     .subtitle,.card .desc,.about-grid p{color:#222;}
@@ -401,6 +404,7 @@
     <div class="stack-row">
       <span class="chip"><a href="https://github.com/RodrigoBMagal" target="_blank" rel="noopener">github.com/RodrigoBMagal</a></span>
       <span class="chip"><a href="mailto:rodrigo.bento2010@gmail.com">rodrigo.bento2010@gmail.com</a></span>
+      <button type="button" class="chip" onclick="window.print()">imprimir / salvar em PDF</button>
     </div>
   </div>
 </section>
